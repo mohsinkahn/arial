@@ -1,22 +1,10 @@
 <?php require_once('header.php') ?>
 
 <style>
-    .lock {
-        display: none;
+    .lock{
+      display: none;
     }
-    #display {
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-                border: 4px solid #ccc;
-                font-size: 40px;
-                border-radius: 8px;
-                padding: 7px;
-                height: 75px;
-
-            }    
 </style>
-
-
 <div class="page-content">
     <div class="container-fluid">
 
@@ -33,119 +21,74 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">Change quantity of item before scanning</h4>
-                        <div class="calculator">
-                    <div id="display"></div>
-                    <table id="calcu">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <button>7</button>
-                                </td>
-                                <td>
-                                    <button>8</button>
-                                </td>
-                                <td>
-                                    <button>9</button>
-                                </td>
-                                <!-- <td>
-                                    <button>-</button>
-                                </td> -->
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button>4</button>
-                                </td>
-                                <td>
-                                    <button>5</button>
-                                </td>
-                                <td>
-                                    <button>6</button>
-                                </td>
-                                <!-- <td>
-                                    <button>+</button>
-                                </td> -->
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button>1</button>
-                                </td>
-                                <td>
-                                    <button>2</button>
-                                </td>
-                                <td>
-                                    <button>3</button>
-                                </td>
-                                <!-- <td>
-                                    <button>=</button>
-                                </td> -->
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button>0</button>
-                                </td>
-                                <td>
-                                    <button>c</button>
-                                </td>
-                                <td>
-                                    <button><</button>
-                                </td>
-                                <!-- <td>
-                                    <button>/</button>
-                                </td> -->
-                            </tr>
-                        </tbody>
-                    </table>
-                    <script>
-                        function handler(event) {
-                            const value = event.target.innerText
-                            const display = document.getElementById("display")
 
-                            switch (value) {
-                                case "c":
-                                    display.innerText = ""
-                                    break
+                        <div>
 
-                                case "<":
-                                    display.innerText = display.innerText.slice(0, -1)
-                                    break
-                                      
-                                case "=":
-                                    display.innerText = eval(display.innerText)
-                                    break
+                            <table id="calcu">
+                                <tr>
+                                    <td colspan="3"><input type="text" id="result" placeholder="1"></td>
+                                    <!-- clr() function will call clr to clear all value -->
 
-                                default:
-                                    display.innerText += value
-                            }
-                        }
+                                </tr>
+                                <tr>
+                                    <!-- create button and assign value to each button -->
+                                    <!-- dis("1") will call function dis to display value -->
+                                    <td><input type="button" value="1" onclick="dis('1')" onkeydown="myFunction(event)"> </td>
+                                    <td><input type="button" value="2" onclick="dis('2')" onkeydown="myFunction(event)"> </td>
+                                    <td><input type="button" value="3" onclick="dis('3')" onkeydown="myFunction(event)"> </td>
+                                    <!-- <td><input type="button" value="/" onclick="dis('/')" onkeydown="myFunction(event)"> </td> -->
+                                </tr>
+                                <tr>
+                                    <td><input type="button" value="4" onclick="dis('4')" onkeydown="myFunction(event)"> </td>
+                                    <td><input type="button" value="5" onclick="dis('5')" onkeydown="myFunction(event)"> </td>
+                                    <td><input type="button" value="6" onclick="dis('6')" onkeydown="myFunction(event)"> </td>
 
-                        Array
-                            .from(
-                                document.getElementsByTagName("td")
-                            )
-                            .forEach(
-                                (td) => {
-                                    td.addEventListener("click", handler)
-                                }
-                            )
-                    </script>
-                </div>
+                                </tr>
+                                <tr>
+                                    <td><input type="button" value="7" onclick="dis('7')" onkeydown="myFunction(event)"> </td>
+                                    <td><input type="button" value="8" onclick="dis('8')" onkeydown="myFunction(event)"> </td>
+                                    <td><input type="button" value="9" onclick="dis('9')" onkeydown="myFunction(event)"> </td>
+
+                                </tr>
+                                <tr>
+                                    <!-- solve function call function solve to evaluate value -->
+                                    <!-- <td><input type="button" value="-" onclick="dis('-')" onkeydown="myFunction(event)"> </td> -->
+                                    <td><input type="button" value="c" onclick="clr()" /> </td>
+                                    <td><input type="button" value="0" onclick="dis('0')" onkeydown="myFunction(event)"> </td>
+                                    <!-- <td><input type="button" value="+" onclick="dis('+')" onkeydown="myFunction(event)"> </td> -->
+                                    <td><input type="button" value="-" onclick="dis('-')" onkeydown="myFunction(event)"> </td>
+                                </tr>
+                                <!-- <tr>
+                                    <td><input type="button" value="*" onclick="dis('*')" onkeydown="myFunction(event)"> </td>
+                                    <td><input type="button" value="c" onclick="clr()" /> </td>
+                                    <td><input type="button" value="=" onclick="solve()"> </td>
+                                </tr> -->
+                            </table>
+                            </ul>
+
+                        </div>
+
                     </div>
                 </div>
+
             </div>
+
             <div class="col-xl-4 col-md-6">
                 <div class="card mini-stats">
                     <div class="p-4 mini-stats-content">
+
                     </div>
                     <div class="mx-3">
                         <div class="card mb-0 border p-3 mini-stats-desc">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <h6 class="mt-0 mb-3">item location</h6>
+                                <h6 class="mt-0 mb-3">item location</h6>
                                 </div>
                                 <div>
-                                    <!-- <input type="text" class="form-control" placeholder="Exp:A16"> -->
-                                    <h6 class="mt-0 mb-3">A16</h6>
+                                <!-- <input type="text" class="form-control" placeholder="Exp:A16"> -->
+                                <h6 class="mt-0 mb-3">A16</h6>
                                 </div>
+                                 
                             </div>
                             <!-- <p class="text-muted mb-0">Sed ut perspiciatis unde iste</p> -->
                         </div>
@@ -154,29 +97,38 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">item scanned</h4>
+
                         <div class="p-2">
+
                             <div class="no-event d-flex align-center flex-direction" style="height:285px">
                                 <img src="assets/images/get.jpeg" class="img-responsive w-230 m-auto mt-3" alt="">
                                 <p class="font-bold text-center flex-2 mt-4 font-bold">Getfilte Fish <br>
+
                                 </p>
+
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="card mini-stats">
                     <div class="p-4 mini-stats-content">
+
                     </div>
                     <div class="mx-3">
                         <div class="card mb-0 border p-3 mini-stats-desc">
-                            <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <h6 class="mt-0 mb-3">Barcode Scanned</h6>
+                                <h6 class="mt-0 mb-3">Barcode Scanned</h6>
                                 </div>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Exp:000988756644">
+                                <input type="text" class="form-control" placeholder="Exp:000988756644">
                                 </div>
-                            </div>
+                                 
+                            </div>    
+                            
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -185,18 +137,21 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row align-items-center">
-                            <div class="col-md-8">
-                                <h4 class="mt-0 header-title">Recent scan</h4>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="#" class="btn btn-primary mar-bottom-8">Undo <i class="fa fa-undo"></i> </a>
-                            </div>
+                          <div class="col-md-8">
+                          <h4 class="mt-0 header-title">Recent scan</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <a href="#" class="btn btn-primary mar-bottom-8">Undo <i class="fa fa-undo"></i> </a>
+                          </div>
                         </div>
+                        
+
                         <div class="p-2 scan">
                             <div class="table-responsive">
                                 <table class="table table-bordered mb-0">
                                     <thead>
                                         <tr>
+
                                             <th>Product</th>
                                             <th>Barcode</th>
                                             <th>Quantity</th>
@@ -313,6 +268,8 @@
                                                 </a>
                                             </td>
                                         </tr>
+
+
                                     </tbody>
                                 </table>
                             </div>
@@ -328,9 +285,9 @@
                     <div class="mx-3">
                         <div class="card mb-0 border p-3 mini-stats-desc">
                             <div class="d-flex justify-content-center">
-                                <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg" style="color:white;">Submit All </a>
-                                <a href="#" class="btn btn-danger  mar-left-1" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg2">Delete All</a>
-                                <a href="#" class="btn btn-pink  mar-left-1" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg3">Category Editor</a>
+                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg" style="color:white;">Submit All </a>
+                            <a href="#" class="btn btn-danger  mar-left-1" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg2">Delete All</a>
+                            <a href="#" class="btn btn-pink  mar-left-1" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg3">Category Editor</a>     
                             </div>
                         </div>
                     </div>
@@ -338,8 +295,83 @@
             </div>
         </div>
         <!-- end row -->
-       
+<style>
+    #display{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+            }
+</style>
+
+        <div class="calculator">
+  <div id="display"></div>
+  <table>
+    <tbody>
+      <tr>
+        <td colspan="4">
+          <button>=</button>
+        </td>
+      </tr>
+      <tr>
+         <td>7</td>
+         <td>8</td>
+         <td>9</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td>4</td>
+         <td>5</td>
+         <td>6</td>
+         <td>+</td>
+      </tr>
+      <tr>
+         <td>1</td>
+         <td>2</td>
+         <td>3</td>
+         <td>*</td>
+      </tr>
+      <tr>
+         <td>0</td>
+         <td>🆑</td>
+         <td>⬅️</td>
+         <td>/</td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    function handler(event) {
+  const value = event.target.innerText
+  const display = document.getElementById("display")
+  
+  switch(value) {
+    case "🆑":
+      display.innerText = ""
+      break
+
+    case "⬅️":
+      display.innerText = display.innerText.slice(0, -1)
+      break
       
+    case "=":
+      display.innerText = eval(display.innerText)
+      break
+    
+    default:
+      display.innerText += value
+  }
+}
+
+Array
+  .from(
+    document.getElementsByTagName("td")
+  )
+  .forEach(
+    (td) => {
+      td.addEventListener("click", handler)
+    }
+  ) 
+  </script>
+</div>
 
     </div>
 </div>
@@ -402,7 +434,7 @@
             <div class="modal-body">
                 <div>
                     <div class="row">
-
+                        
                         <div class="col-md-12">
                             <h6>Are You Sure Want To Delete this?</h6>
                         </div>
@@ -449,26 +481,26 @@
                                                 <ul class="ks-cboxtags justify-content-center">
                                                     <li>
                                                         <input type="checkbox" id="ba" value=""><label for="ba">
-                                                            <img src="assets/images/baby-removebg-preview.png" alt="">
-                                                            Bevarages</label>
+                                                        <img src="assets/images/baby-removebg-preview.png" alt="">    
+                                                        Bevarages</label>
                                                     </li>
                                                 </ul>
                                             </td>
                                             <td>
-                                                <ul class="ks-cboxtags justify-content-center">
+                                            <ul class="ks-cboxtags justify-content-center">
                                                     <li>
                                                         <input type="checkbox" id="bev" value=""><label for="bev">
-                                                            <img src="assets/images/beverage-removebg-preview.png" alt="">
-                                                            Bevarages</label>
+                                                        <img src="assets/images/beverage-removebg-preview.png" alt="">     
+                                                        Bevarages</label>
                                                     </li>
                                                 </ul>
                                             </td>
-                                            <td>
-                                                <ul class="ks-cboxtags justify-content-center">
+                                            <td> 
+                                            <ul class="ks-cboxtags justify-content-center">
                                                     <li>
                                                         <input type="checkbox" id="can" value=""><label for="can">
-                                                            <img src="assets/images/canned-removebg-preview.png" alt="">
-                                                            Canned Goods</label>
+                                                        <img src="assets/images/canned-removebg-preview.png" alt="">    
+                                                        Canned Goods</label>
                                                     </li>
                                                 </ul>
                                             </td>
@@ -476,30 +508,30 @@
                                                 <ul class="ks-cboxtags justify-content-center">
                                                     <li>
                                                         <input type="checkbox" id="con" value=""><label for="con">
-                                                            <img src="assets/images/cond-removebg-preview.png" alt="">
-                                                            Condiments</label>
+                                                        <img src="assets/images/cond-removebg-preview.png" alt="">    
+                                                        Condiments</label>
                                                     </li>
                                                 </ul>
                                             </td>
 
                                         </tr>
                                         <tr>
-
-                                            <td>
-                                                <ul class="ks-cboxtags justify-content-center">
+                                            
+                                            <td> 
+                                            <ul class="ks-cboxtags justify-content-center">
                                                     <li>
                                                         <input type="checkbox" id="coo" value=""><label for="coo">
-                                                            <img src="assets/images/cook-removebg-preview.png" alt="">
-                                                            Cooking & Baking</label>
+                                                        <img src="assets/images/cook-removebg-preview.png" alt="">    
+                                                        Cooking & Baking</label>
                                                     </li>
                                                 </ul>
                                             </td>
                                             <td>
-                                                <ul class="ks-cboxtags justify-content-center">
+                                            <ul class="ks-cboxtags justify-content-center">
                                                     <li>
                                                         <input type="checkbox" id="mea" value=""><label for="mea">
-                                                            <img src="assets/images/meat-removebg-preview.png" alt="">
-                                                            Meat & Fish</label>
+                                                        <img src="assets/images/meat-removebg-preview.png" alt="">    
+                                                        Meat & Fish</label>
                                                     </li>
                                                 </ul>
                                             </td>
@@ -507,40 +539,40 @@
                                                 <ul class="ks-cboxtags justify-content-center">
                                                     <li>
                                                         <input type="checkbox" id="hea" value=""><label for="hea">
-                                                            <img src="assets/images/health-removebg-preview.png" alt="">
-                                                            Health & Beauty</label>
+                                                        <img src="assets/images/health-removebg-preview.png" alt="">    
+                                                        Health & Beauty</label>
                                                     </li>
                                                 </ul>
                                             </td>
 
-                                            <td>
-                                                <ul class="ks-cboxtags justify-content-center">
+                                            <td> 
+                                            <ul class="ks-cboxtags justify-content-center">
                                                     <li>
                                                         <input type="checkbox" id="hou" value=""><label for="hou">
-                                                            <img src="assets/images/house-removebg-preview.png" alt="">
-                                                            Household & Cleaning</label>
+                                                        <img src="assets/images/house-removebg-preview.png" alt="">    
+                                                        Household & Cleaning</label>
                                                     </li>
                                                 </ul>
                                             </td>
 
                                         </tr>
                                         <tr>
-
+                                           
                                             <td>
-                                                <ul class="ks-cboxtags justify-content-center">
+                                            <ul class="ks-cboxtags justify-content-center">
                                                     <li>
                                                         <input type="checkbox" id="pan" value=""><label for="pan">
-                                                            <img src="assets/images/pantry-removebg-preview.png" alt="">
-                                                            Pantry</label>
+                                                        <img src="assets/images/pantry-removebg-preview.png" alt="">    
+                                                        Pantry</label>
                                                     </li>
                                                 </ul>
                                             </td>
                                             <td>
-                                                <ul class="ks-cboxtags justify-content-center">
+                                            <ul class="ks-cboxtags justify-content-center">
                                                     <li>
                                                         <input type="checkbox" id="sna" value=""><label for="sna">
-                                                            <img src="assets/images/snack-removebg-preview.png" alt="">
-                                                            Snacks</label>
+                                                        <img src="assets/images/snack-removebg-preview.png" alt="">    
+                                                        Snacks</label>
                                                     </li>
                                                 </ul>
                                             </td>
@@ -548,7 +580,7 @@
                                             <td></td>
 
                                         </tr>
-
+                                       
 
                                     </tbody>
                                 </table>
@@ -562,15 +594,15 @@
                     </div>
 
                 </div>
-
+               
             </div>
             <div class="modal-footer">
-                <div class="btn-group " role="group" aria-label="Basic example">
-                    <a href="#" type="submit" class="btn btn-primary">Save</a>
-                    <a href="#" type="button" class="btn btn-secondary">Cancel</a>
+                    <div class="btn-group " role="group" aria-label="Basic example">
+                        <a href="#" type="submit" class="btn btn-primary">Save</a>
+                        <a href="#" type="button" class="btn btn-secondary">Cancel</a>
 
+                    </div>
                 </div>
-            </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
@@ -612,7 +644,6 @@
     // Function that clear the display
     function clr() {
         document.getElementById("result").value = ""
-        // result.innerText = result.innerText.slice(0, -1)
     }
 </script>
 <?php require_once('footer.php') ?>

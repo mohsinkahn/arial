@@ -1,0 +1,89 @@
+// mixin functions
+
+@mixin float_right {
+    float:right;
+}
+
+@mixin form_control {
+    border:1px solid #7e96cc!important;
+    height: 45px !important;
+}
+
+@mixin padding_card {
+ padding:1.2rem;
+     
+}
+
+@mixin  justify_center {
+justify-content:center;    
+}
+
+@mixin form_control2 {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #7e96cc;
+    height: 30px;
+    border-radius: 0.25rem;
+}
+
+@mixin table_search_form_control {
+    padding: 0.375rem 0.75rem;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #7e96cc;
+    height: 30px!important;
+    border-radius: 0.25rem;
+}
+
+@mixin checkbox {
+    transform: scale(1.5);
+    margin: 10px 8px 0 0;
+}
+
+@mixin list_unstyled {
+    height: 345px;
+    overflow-y: auto;    
+}
+
+// extend
+%message{
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+// end
+
+
+@mixin text-color($val){
+    @if $val == light {
+      color: #f8f9fa;
+    }
+    @else if $val == dark {
+      color: #212529;
+    }
+    @else if $val == danger {
+      color: red;
+    }
+    @else if $val == success {
+      color: green
+    }
+    @else{
+      color: black;
+    }
+  }
+
+.text {
+    font-size:16px;
+    @include text-color(danger);
+}
+// end

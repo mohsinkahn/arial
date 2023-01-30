@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+input[type="radio"] {
+  display: none;
+}
+.radio-horizontal > label {
+  border-right: 1px solid #c0392b;
+}
+.radio-horizontal > label:first-of-type {
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+}
+.radio-horizontal > label:last-of-type {
+  border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  border-right: none;
+}
+input[type="radio"] + label {
+  cursor: pointer;
+  position: relative;
+  background: #e74c3c;
+  box-shadow: 0em 0.25em #c0392b;
+  color: #ecf0f1;
+  font-family: Ubuntu;
+  font-weight: 500;
+  font-size: 1.2em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+}
+input[type="radio"]:checked + label {
+  background: #c0392b;
+  box-shadow: none;
+  top: 0.25em;
+}
+
+    </style>
+</head>
+<body>
+    <div class="radio-horizontal">
+        <input type="radio" name="language" id="javascript" /><label for="javascript">JavaScript</label><input type="radio"
+            name="language" id="elixir" checked /><label for="elixir">Elixir</label><input type="radio" name="language"
+            id="rust" /><label for="rust">Rust</label><input type="radio" name="language" id="scheme" /><label
+            for="scheme">Scheme</label><input type="radio" name="language" id="prolog" /><label
+            for="prolog">Prolog</label><input type="radio" name="language" id="forth" /><label for="forth">Forth</label>
+        <input type="radio" name="language" id="fifth" /><label for="fifth">Forth</label>
+        <input type="radio" name="language" id="six" /><label for="six">six</label>
+        <input type="radio" name="language" id="seven" /><label for="seven">seven</label>
+        <input type="radio" name="language" id="eight" /><label for="eight">Forth</label>
+        <input type="radio" name="language" id="nine" /><label for="nine">Forth</label>
+    
+    </div>
+</div>
+</body>
+</html>

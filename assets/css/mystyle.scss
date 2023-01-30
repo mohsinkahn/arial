@@ -1,0 +1,388 @@
+
+@import "variables";
+@import "mixin";
+
+
+// function
+@function half($width){
+@return $width/2 + px;
+}
+
+.half-width{
+    width: half($custom-width);
+}
+
+// end
+
+//  loops for
+@for $i from 1 through 3{
+    .list-#{$i}{
+     width: 100*$i + px;
+    }
+}
+// for margin bottom fucntion
+@for $i from 1 through 10{
+    .mar-bottom-#{$i}{
+      margin-bottom: 2 * $i + px;
+    }
+}
+// end
+// for margin top fucntion
+@for $i from 1 through 10{
+    .mar-top-#{$i}{
+      margin-top: 2 * $i + px;
+    }
+}
+// end
+
+// for loop margin left
+@for $i from 1 through 10{
+    .mar-left-#{$i}{
+      margin-left: 2 * $i + px;
+    }
+}
+
+// end
+
+//function end
+
+// if else 
+
+.ok{
+@if 1 + 2 == 2{
+    color:blue;
+  }@else{
+    color: #000;
+  }
+}
+
+// end
+
+// custom classes 
+
+table {
+    // border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+.align-item-center{
+    align-items: center;
+}
+
+
+#calcu input[type="button"] {
+    width: 95%;
+    margin-bottom: 10px;
+    padding: 28px 0px;
+    background:$calculator_color;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    box-shadow:$calculator_box_shadow;
+    transition: .1s;
+
+    &:active{
+        background:linear-gradient(205deg, #cacaca, #f0f0f0);
+        box-shadow:$calculator_box_shadow;
+    }
+}
+
+#calcu input[type="text"] {
+    padding: 20px 30px;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    border: 3px solid #ccc;
+}
+
+#calcu input[type="text"]:active{
+    border: 5px solid #ccc!important;
+}
+
+.scan{
+    height: 420px;
+    overflow-y: scroll;
+}
+
+
+ .form-control{
+   @include form_control;
+}
+
+:has(.modal) .form-control{
+  @include form_control;
+}
+
+#datatable_wrapper .form-control{
+    @include table_search_form_control;
+}
+
+.form-select{
+    @include form_control;
+}
+
+ .pad-card{
+    @include padding_card;
+    padding-bottom: 0;
+ }
+.justify-center{
+    @include justify_center;
+}
+.form-control2{
+    @include form_control2;
+}
+
+.text-dark{
+    font-weight:500;
+}
+.modal-header{
+    background:linear-gradient(#2c313e,#2c313e)!important;
+    color:$white;
+    .btn-close{
+        background:url(../images/close.png)!important;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain!important;
+        opacity: 1!important;
+    }
+}
+
+.modal{
+    .table{
+        th{
+            padding-left: 1px;
+        }
+        td{
+            padding: 6px 0px 4px 15px;
+           
+        }
+    } 
+    .btn-primary{
+        background-color: $navbar-color!important;
+    }
+
+    
+}
+.btn-primary{
+    background-color: $logo-color-1!important;
+}
+.btn-dark{
+    background-color: $logo-color-2!important;
+    float: right;
+}
+
+.w-230{
+    width: 230px;
+}
+
+.h-360{
+    height: 360px;
+}
+.h-305{
+    height: 305px;
+}
+.font-bold{
+    font-weight: bold;
+}
+
+.flex-direction{
+    flex-direction: column;
+}
+
+.flex-2{
+    flex:2; 
+}
+.text-black{
+    color:$black;
+}
+
+.no-event{
+    p{
+        font-size: 15px;
+    }
+}
+.accountbg{
+    // background:$logo-color-1!important;
+    background:url(../images/wave2.svg)!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+}
+
+.message{
+    @extend %message;
+}
+
+.bg-aliceblue{
+    background-color: aliceblue!important;
+}
+
+.accordion{
+    border-radius: 0!important;
+     .accordion-item{
+       &:last-of-type{
+        border-bottom-right-radius:0px!important;
+        border-bottom-left-radius:0px!important;
+        .accordion-button{
+            border-bottom-right-radius:0px!important;
+            border-bottom-left-radius:0px!important;
+        }
+      
+       }
+       &:first-of-type{
+        border-top-left-radius:0px!important;
+        border-top-right-radius:0px!important;
+        .accordion-button{
+            border-bottom-right-radius:0px!important;
+            border-bottom-left-radius:0px!important;
+        }
+      
+       }
+    }
+}
+
+// end
+
+.calculator{
+    width: fit-content;
+    button{
+        width: 95%;
+    margin-bottom: 10px;
+    padding: 28px 54px;
+    background: linear-gradient(145deg, #2d86c5, #2c86c6);
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 5px 6px 5px #bebebe, 10px 0px 0px #ffffff;
+    transition: 0.1s;
+    &:active{
+        background: linear-gradient(205deg, #cacaca, #f0f0f0);
+        box-shadow: 5px 6px 5px #bebebe, 10px 0px 0px #ffffff;
+       }
+    }
+}
+
+
+// media query
+@media (max-width: 768px){
+.large{
+    // visibility: hidden!important;
+    display: none!important;
+  }
+  .small{
+    // visibility: visible!important;
+    // display: block!important;
+    display: flex!important;
+  }
+}
+@media (min-width: 1000px){
+    .large{
+    
+        // visibility: visible;
+        display: block;
+    }
+    .small{
+        display: none!important;
+        // visibility: hidden;
+    }
+}
+
+
+// end
+
+body{
+    #page-topbar{
+        background:linear-gradient(#2c313e,#2c313e)!important;
+    }
+    .topnav{
+        z-index: 9;
+        .dropdown-menu{
+            left: -12px;
+        }
+        .dropdown-menu-lg{
+            width: 260px;
+        }
+         .dropdown>.show:before{
+            display: none;
+         }
+    }
+    .page-content{
+
+        .mini-stats{
+           
+            .mini-stats-content{
+                background:$navbar-color!important;
+            }
+
+        } 
+        .card{
+            .card-title{
+                color:$card-title-color;
+            }
+            .dataTable{
+                thead{
+                    th{
+                        font-weight:600;
+                        background-color:$table-head-color;
+                        text-align: center;
+                    }
+                }
+                tbody{
+                    td{
+                        padding: 10px;
+                        text-align: center;
+                        i{
+                            color: $card-title-color;
+                        }
+                    }
+                }   
+             }
+             .btn-primary{
+                @include float_right;
+                background-color:$logo-color-1!important;
+             }
+             .card-tag{
+                background-color:$form-head-tag-color ;
+                @include padding_card;
+             }
+             .availibility{
+                input[type="checkbox"]{
+                    @include checkbox;
+                }
+                span{
+                    font-weight: bold;
+                }
+                .table{
+                    td{
+                        padding: 6px 0px 4px 15px;
+                    }
+                }
+             }
+             .table-elements{
+                input[type="checkbox"]{
+                    @include checkbox;
+                }
+                .table{
+                    th{
+                        width: 80px;
+                    }
+                    td{
+                        padding: 6px 0px 4px 15px;
+                       
+                    }
+                }
+             }
+             .list-unstyled{
+               @include list_unstyled;
+             }
+        }
+    }
+}
+
+
+
